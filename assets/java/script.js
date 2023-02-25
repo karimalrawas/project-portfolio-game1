@@ -1,82 +1,94 @@
-const choices = document.querySelectorAll('.choice');
-const score = document.querySelector('#score');
-const result = document.querySelector('#result');
-const modal = document.querySelector('.modal');
-const scoreboard = {
-  player: 0,
-  computer: 0
-};
 
-function play(e) {
-  const playerChoice = e.target.id;
-  const computerChoice = getComputerChoice();
-  const winner = getWinner(playerChoice, computerChoice);
-  showWinner(winner, computerChoice);
-}
+let userScore = 0;
+let computerScore = 0;
+const userScore_span = document.getElementById('user-score');
+const computerScore_span = document.getElementById('computer-score');
+const scoreBoard_div = document.querySelector('.score-board');
+const result_div = document.querySelector('.result');
+const rock_div = document.getElementById('rock');
+const paper_div = document.getElementById('paper');
+const scissors_div = document.getElementById('scissors');
+
 
 function getComputerChoice() {
-  const choices = ['rock', 'paper', 'scissors'];
-  const randomChoice = Math.floor(Math.random() * 3);
-  return choices[randomChoice];
+const choices = ['rock', 'paper', 'scissors'];
+const randomNumber = Math.floor(Math.random() * 3);
+return choices[randomNumber];
 }
 
-function getWinner(playerChoice, computerChoice) {
-  if (playerChoice === computerChoice) {
-    return 'draw';
-  } else if (
-    (playerChoice === 'rock' && computerChoice === 'scissors') ||
-    (playerChoice === 'paper' && computerChoice === 'rock') ||
-    (playerChoice === 'scissors' && computerChoice === 'paper')
-  ) {
-    return 'player';
-  } else {
-    return 'computer';
-  }
+
+function convertCase(anythingIwant) {
+if (anythingIwant === 'paper') return 'Paper';
+if (anythingIwant === 'scissors') return 'Scissors';
+return 'Rock';
 }
 
-function showWinner(winner, computerChoice) {
-  if (winner === 'player') {
-    scoreboard.player++;
-    result.innerHTML = `
-      <h1 class="text-win">You Win!</h1>
-      <img src="assets/images/${computerChoice}.png" alt="${computerChoice}">
-      <p>Computer chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
-    `;
-  } else if (winner === 'computer') {
-    scoreboard.computer++;
-    result.innerHTML = `
-      <h1 class="text-lose">You Lose!</h1>
-      <img src="assets/images/${computerChoice}.png" alt="${computerChoice}">
-      <p>Computer chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
-    `;
-  } else {
-    result.innerHTML = `
-      <h1>It's a Draw!</h1>
-      <img src="assets/images/${computerChoice}.png" alt="${computerChoice}">
-      <p>Computer chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
-    `;
-  }
-  score.innerHTML = `
-    <p>Player: ${scoreboard.player}</p>
-    <p>Computer: ${scoreboard.computer}</p>
-  `;
-  modal.style.display = 'block';
+
+function win(user, computer) {
+userScore++;
+
+userScore_span.innerHTML = userScore;
+const userName = ' (user)'.fontsize(3).sup();
+const compName = ' (comp)'.fontsize(3).sup();
+result_div.innerHTML = `<p>${convertCase(user)}${userName} beats ${convertCase(computer)}${compName}. You win this time human!</p>`;
+const roundStatus = document.getElementById(user);
+roundStatus.classList.add('winningStyles');
+setTimeout(() => roundStatus.classList.remove('winningStyles'), 300);
 }
 
-function restartGame() {
-  scoreboard.player = 0;
-  scoreboard.computer = 0;
-  score.innerHTML = `
-    <p>Player: 0</p>
-    <p>Computer: 0</p>
-  `;
+function loses(user, computer) {
+computerScore++;
+
+computerScore_span.innerHTML = computerScore;
+const userName = ' (user)'.fontsize(3).sup();
+const compName = ' (comp)'.fontsize(3).sup();
+result_div.innerHTML = `<p>${convertCase(computer)}${compName} beats ${convertCase(user)}${userName}. You lose! AI will take over humanity!</p>`;
+const roundStatus = document.getElementById(user);
+roundStatus.classList.add('losingStyles');
+setTimeout(() => roundStatus.classList.remove('losingStyles'), 300);
 }
 
-function closeModal(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
+function draw(user, computer) {
+const userName = ' (user)'.fontsize(3).sup();
+const compName = ' (comp)'.fontsize(3).sup();
+result_div.innerHTML = `<p>Draw! We both chose ${convertCase(user)}</p>`;
+
+const roundStatus = document.getElementById(user);
+roundStatus.classList.add('drawStyles');
+setTimeout(() => roundStatus.classList.remove('drawStyles'), 300);
 }
 
-choices.forEach(choice => choice.addEventListener('click', play));
-window.addEventListener('click', closeModal);
+
+function game(userChoice) {
+const computerChoice = getComputerChoice();
+
+
+switch (userChoice + computerChoice) {
+case 'paperrock':
+case 'rockscissors':
+case 'scissorspaper':
+win(userChoice, computerChoice);
+
+break;
+case 'rockpaper':
+case 'scissorsrock':
+case 'paperscissors':
+loses(userChoice, computerChoice);
+
+break;
+case 'rockrock':
+case 'scissorsscissors':
+case 'paperpaper':
+draw(userChoice, computerChoice);
+console.log("draw");
+break;
+}
+}
+
+
+function main() {
+rock_div.addEventListener('click', () => game('rock'));
+paper_div.addEventListener('click', () => game('paper'));
+scissors_div.addEventListener('click', () => game('scissors'));
+}
+main();
