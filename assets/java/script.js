@@ -1,5 +1,4 @@
-
-let humanityScore = 0;
+let userScore = 0;
 let computerScore = 0;
 const userScore_span = document.getElementById('user-score');
 const computerScore_span = document.getElementById('computer-score');
@@ -28,8 +27,8 @@ function win(user, computer) {
 userScore++;
 
 userScore_span.innerHTML = userScore;
-const userName = ' (user)'.fontsize(3).sup();
-const compName = ' (comp)'.fontsize(3).sup();
+const userName = ' (user)'.fontsize(5)
+const compName = ' (comp)'.fontsize(5)
 result_div.innerHTML = `<p>${convertCase(user)} beats ${convertCase(computer)}. You win this time human!</p>`;
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('winningStyles');
@@ -40,22 +39,22 @@ function loses(user, computer) {
 computerScore++;
 
 computerScore_span.innerHTML = computerScore;
-const userName = ' (user)'.fontsize(3).sup();
-const compName = ' (comp)'.fontsize(3).sup();
-result_div.innerHTML = `<p>${convertCase(computer)} beats ${convertCase(user)}. You lose! AI will take over humanity!</p>`;
+const userName = ' (user)'.fontsize(5)
+const compName = ' (comp)'.fontsize(5)
+result_div.innerHTML = `<p>${convertCase(computer)} beats ${convertCase(user)}. HA! AI will take over!</p>`;
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('losingStyles');
 setTimeout(() => roundStatus.classList.remove('losingStyles'), 300);
 }
 
 function draw(user, computer) {
-const userName = ' (user)'.fontsize(3).sup();
-const compName = ' (comp)'.fontsize(3).sup();
-result_div.innerHTML = `<p>Draw! We both chose ${convertCase(user)}</p>`;
+const userName = ' (user)'.fontsize(5)
+const compName = ' (comp)'.fontsize(5)
+result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
 
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('drawStyles');
-setTimeout(() => roundStatus.classList.remove('drawStyles'), 300);
+setTimeout(() => roundStatus.classList.remove('drawStyles'), 400);
 }
 
 
@@ -87,8 +86,8 @@ break;
 
 
 function main() {
-rock_div.addEventListener('click', () => game('rock'));
-paper_div.addEventListener('click', () => game('paper'));
-scissors_div.addEventListener('click', () => game('scissors'));
-}
-main();
+    rock_div.addEventListener('click', () => game('rock'));
+    paper_div.addEventListener('click', () => game('paper'));
+    scissors_div.addEventListener('click', () => game('scissors'));
+    }
+    main();

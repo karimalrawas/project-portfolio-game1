@@ -41,6 +41,7 @@ header h1 {
 }
 
 .badge {
+  
   background-color: #000;
   color: #fff;
   text-transform: uppercase;
@@ -73,13 +74,15 @@ header h1 {
   line-height: 45px;
 }
 
-.choices {
+.icons {
+  
   margin: 0 auto;
   text-align: center;
   padding: 30px 0;
 }
 
-.choice {
+.icon {
+  cursor: pointer;
   display: inline-block;
   border: 5px solid #fff;
   border-radius: 60%;
