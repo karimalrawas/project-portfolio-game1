@@ -32,7 +32,7 @@ const compName = ' (comp)'.fontsize(5)
 result_div.innerHTML = `<p>${convertCase(user)} beats ${convertCase(computer)}. You win this time human!</p>`;
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('winningStyles');
-setTimeout(() => roundStatus.classList.remove('winningStyles'), 300);
+setTimeout(() => roundStatus.classList.remove('winningStyles'), );
 }
 
 function loses(user, computer) {
@@ -44,17 +44,17 @@ const compName = ' (comp)'.fontsize(5)
 result_div.innerHTML = `<p>${convertCase(computer)} beats ${convertCase(user)}. HA! AI will take over!</p>`;
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('losingStyles');
-setTimeout(() => roundStatus.classList.remove('losingStyles'), 300);
+setTimeout(() => roundStatus.classList.remove('losingStyles'), );
 }
 
 function draw(user, computer) {
 const userName = ' (user)'.fontsize(5)
 const compName = ' (comp)'.fontsize(5)
-result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
+result_div.innerHTML = `<p>It's a draw! We both chose ${convertCase(user)}</p>`;
 
 const roundStatus = document.getElementById(user);
 roundStatus.classList.add('drawStyles');
-setTimeout(() => roundStatus.classList.remove('drawStyles'), 400);
+setTimeout(() => roundStatus.classList.remove('drawStyles'), );
 }
 
 
@@ -91,3 +91,5 @@ function main() {
     scissors_div.addEventListener('click', () => game('scissors'));
     }
     main();
+
+
