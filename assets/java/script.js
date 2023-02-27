@@ -34,7 +34,7 @@ function win(user, computer) {
   result_div.innerHTML = `<p>${convertCase(user)} beats ${convertCase(computer)}. You win this time human!</p>`;
   const roundStatus = document.getElementById(user);
   roundStatus.classList.add('winningStyles');
-  setTimeout(() => roundStatus.classList.remove('winningStyles'), );
+
   if (numberOfWins === 3) {
     result_div.innerHTML += "<p>You saved humanity! Well done</p>";
     resetGame();
@@ -50,7 +50,7 @@ function loses(user, computer) {
   result_div.innerHTML = `<p>${convertCase(computer)} beats ${convertCase(user)}. HA! AI will take over!</p>`;
   const roundStatus = document.getElementById(user);
   roundStatus.classList.add('losingStyles');
-  setTimeout(() => roundStatus.classList.remove('losingStyles'), );
+  
   if (numberOfLosses === 3) {
     result_div.innerHTML += "<p>Game Over! AI will rise!</p>";
     resetGame();
@@ -63,7 +63,7 @@ function draw(user, computer) {
   result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
   const roundStatus = document.getElementById(user);
   roundStatus.classList.add('drawStyles');
-  setTimeout(() => roundStatus.classList.remove('drawStyles'), );
+  
 }
 
 

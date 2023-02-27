@@ -2,24 +2,32 @@
 <html>
 
 <head>
+
     <meta charset="utf-8>" />
-    <title>Rock Papaer Scissors</title>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
 <body>
+
     <header>
-        <h1>RPS of Destiny</h1>
+        <!-- Header and title of the game -->
+        <h1>ROCK, PAPER, SCISSORS OF DESTINY</h1>
     </header>
+
+    <!-- Score board and tracking -->
     <div class="score-board">
+        <!-- Two div elements with ids and classes with their text set to "humanity" and "computer" respectively -->
         <div id="user-label" class="badge">humanity</div>
         <div id="computer-label" class="badge">computer</div>
+        <!-- Two span elements representing both scores, with their initial number set to 0 -->
         <span id="user-score">0</span> : <span id="computer-score">0</span>
     </div>
     <div class="result">
+        <!-- Short paragraph with instructional text -->
         <p>Choose Wisely. You got 3 rounds to win or lose. Click Reset to restart game!</p>
     </div>
     <div class="icons">
+        <!-- Three div elements with ids and class to be styled in CSS as round buttons -->
         <div id="rock" class="icon">
             <img width="48" height="48" src="assets/images/rock.png" />
         </div>
@@ -29,18 +37,15 @@
         <div id="scissors" class="icon">
             <img width="48" height="48" src="assets/images/scissors.png" />
         </div>
-        
     </div>
 
     <div class="reset-button">
+        <!-- Reset button with and an onclick event that reloads the webpage -->
         <button onclick="location.reload()">Reset</button>
-      </div>
-      
+    </div>
 
+    <!-- Link to an external JavaScript file named "script.js" in the "assets/java/" directory -->
     <script src="assets/java/script.js" type="text/javascript"></script>
 </body>
 
 </html>
-
-
-
