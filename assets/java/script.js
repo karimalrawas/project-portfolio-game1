@@ -29,11 +29,10 @@ function win(user, computer) {
   userScore++;
   numberOfWins++;
   userScore_span.innerHTML = userScore;
-  const userName = ' (user)'.fontsize(5)
-  const compName = ' (comp)'.fontsize(5)
+
   result_div.innerHTML = `<p>${convertCase(user)} beats ${convertCase(computer)}. You win this time human!</p>`;
   const roundStatus = document.getElementById(user);
-  roundStatus.classList.add('winningStyles');
+
 
   if (numberOfWins === 3) {
     result_div.innerHTML += "<p>You saved humanity! Well done</p>";
@@ -45,12 +44,11 @@ function loses(user, computer) {
   computerScore++;
   numberOfLosses++;
   computerScore_span.innerHTML = computerScore;
-  const userName = ' (user)'.fontsize(5)
-  const compName = ' (comp)'.fontsize(5)
+
   result_div.innerHTML = `<p>${convertCase(computer)} beats ${convertCase(user)}. HA! AI will take over!</p>`;
   const roundStatus = document.getElementById(user);
-  roundStatus.classList.add('losingStyles');
-  
+
+
   if (numberOfLosses === 3) {
     result_div.innerHTML += "<p>Game Over! AI will rise!</p>";
     resetGame();
@@ -58,12 +56,11 @@ function loses(user, computer) {
 }
 
 function draw(user, computer) {
-  const userName = ' (user)'.fontsize(5)
-  const compName = ' (comp)'.fontsize(5)
+
   result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
   const roundStatus = document.getElementById(user);
-  roundStatus.classList.add('drawStyles');
-  
+
+
 }
 
 
@@ -102,60 +99,60 @@ function game(userChoice) {
 
 
 function main() {
-    let userWins = 0;
-    let computerWins = 0;
-    const maxWins = 3;
-    
-    rock_div.addEventListener('click', () => game('rock'));
-    paper_div.addEventListener('click', () => game('paper'));
-    scissors_div.addEventListener('click', () => game('scissors'));
-    
-    function endGame(message) {
-      result_div.innerHTML = `<p>${message}</p>`;
-      rock_div.removeEventListener('click', () => game('rock'));
-      paper_div.removeEventListener('click', () => game('paper'));
-      scissors_div.removeEventListener('click', () => game('scissors'));
-    }
-    
-    function updateScoreboard() {
-      userScore_span.innerHTML = userWins;
-      computerScore_span.innerHTML = computerWins;
-    }
-    
-    function game(userChoice) {
-      const computerChoice = getComputerChoice();
-      
-      switch (userChoice + computerChoice) {
-        case 'paperrock':
-        case 'rockscissors':
-        case 'scissorspaper':
-          win(userChoice, computerChoice);
-          userWins++;
-          if (userWins === maxWins) {
-            endGame("You saved humanity! Well done.");
-          } else {
-            updateScoreboard();
-          }
-          break;
-        case 'rockpaper':
-        case 'scissorsrock':
-        case 'paperscissors':
-          loses(userChoice, computerChoice);
-          computerWins++;
-          if (computerWins === maxWins) {
-            endGame("Game Over! AI will rise!");
-          } else {
-            updateScoreboard();
-          }
-          break;
-        case 'rockrock':
-        case 'scissorsscissors':
-        case 'paperpaper':
-          draw(userChoice, computerChoice);
-          break;
-      }
+  let userWins = 0;
+  let computerWins = 0;
+  const maxWins = 3;
+
+  rock_div.addEventListener('click', () => game('rock'));
+  paper_div.addEventListener('click', () => game('paper'));
+  scissors_div.addEventListener('click', () => game('scissors'));
+
+  function endGame(message) {
+    result_div.innerHTML = `<p>${message}</p>`;
+    rock_div.removeEventListener('click', () => game('rock'));
+    paper_div.removeEventListener('click', () => game('paper'));
+    scissors_div.removeEventListener('click', () => game('scissors'));
+  }
+
+  function updateScoreboard() {
+    userScore_span.innerHTML = userWins;
+    computerScore_span.innerHTML = computerWins;
+  }
+
+  function game(userChoice) {
+    const computerChoice = getComputerChoice();
+
+    switch (userChoice + computerChoice) {
+      case 'paperrock':
+      case 'rockscissors':
+      case 'scissorspaper':
+        win(userChoice, computerChoice);
+        userWins++;
+        if (userWins === maxWins) {
+          endGame("You saved humanity! Well done.");
+        } else {
+          updateScoreboard();
+        }
+        break;
+      case 'rockpaper':
+      case 'scissorsrock':
+      case 'paperscissors':
+        loses(userChoice, computerChoice);
+        computerWins++;
+        if (computerWins === maxWins) {
+          endGame("Game Over! AI will rise!");
+        } else {
+          updateScoreboard();
+        }
+        break;
+      case 'rockrock':
+      case 'scissorsscissors':
+      case 'paperpaper':
+        draw(userChoice, computerChoice);
+        break;
     }
   }
-  
-  main();
-  
+}
+
+main();
+
