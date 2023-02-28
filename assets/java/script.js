@@ -1,6 +1,6 @@
 // Initializing variables and getting DOM elements
 let userScore = 0;
-let computerScore = 0;
+let computerScore = 0; 
 let numberOfWins = 0;
 let numberOfLosses = 0;
 const userScore_span = document.getElementById('user-score');
