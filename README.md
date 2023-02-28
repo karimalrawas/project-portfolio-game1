@@ -69,6 +69,12 @@ In this Rock, Paper, Scissors game, the user is hinted at a little fun plot that
 
 ![reset](assets/images/reset-button.PNG)
 
+- __The Instructions button__
+
+  - This button can be clicked view the game instructions, and display the text: "Win three rounds against the AI to beat the game. Click Reset to play again.". 
+
+![reset](assets/images/reset-button.PNG)
+
 ### Features Left to Implement
 
 - Animations for winning, losing, and clicking the three buttons. 
