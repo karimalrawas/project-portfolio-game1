@@ -60,7 +60,6 @@ function draw(user, computer) {
   result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
   const roundStatus = document.getElementById(user);
 
-
 }
 
 

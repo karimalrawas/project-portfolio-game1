@@ -133,3 +133,9 @@ button {
   font-weight: bold;
   padding: 10px 20px;
 }
+
+@media screen and (max-width: 765px){
+  body {
+    font-size: 15px;
+  }
+}
