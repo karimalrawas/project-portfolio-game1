@@ -1,35 +1,42 @@
+/* Set the box-sizing property of the HTML element to border-box */
 html {
   box-sizing: border-box;
 }
 
+/* Inheriting the box-sizing property for all elements and their pseudo-elements */
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
 
+/* Setting the margin and padding of all elements to 0 */
 * {
   margin: 0;
   padding: 0;
 }
 
+/* Settting the background color, font color, font-family and other styles for the body element */
 body {
   background: #000;
   color: #fff;
   font-family: sans-serif;
 }
 
+/* Setting the background color and padding for the header element */
 header {
   background-color: #fff;
   padding: 50px;
 }
 
+/* Setting the font color, text-align, and font-weight for the h1*/
 header h1 {
   color: #000;
   text-align: center;
   font-weight: 200;
 }
 
+/* Setting the width, margin, font-size, border-radius, text-align, padding, and position for the score board */
 .score-board {
   width: 500px;
   margin: 50px auto;
@@ -40,8 +47,8 @@ header h1 {
   position: relative;
 }
 
+/* Setting the background color, font color, text-transform, font-size, and padding for the buttons */
 .badge {
-  
   background-color: #000;
   color: #fff;
   text-transform: uppercase;
@@ -49,6 +56,7 @@ header h1 {
   padding: 12px 8px;
 }
 
+/* Setting the position, top, left, and transform for the user label */
 #user-label {
   position: absolute;
   top: 40%;
@@ -56,6 +64,7 @@ header h1 {
   transform: translate(-10%, -50%);
 }
 
+/* Setting the position, top, right, and transform for the computer label */
 #computer-label {
   position: absolute;
   top: 40%;
@@ -63,6 +72,7 @@ header h1 {
   transform: translate(10%, -50%);
 }
 
+/* Set the font-weight, text-align, font-size, and line-height for the results */
 .result {
   font-weight: 290;
   text-align: center;
@@ -70,17 +80,19 @@ header h1 {
   line-height: 45px;
 }
 
+/* Set the line-height for the results */
 .result {
   line-height: 45px;
 }
 
+/* Setting the margin, text-align, and padding for the icons */
 .icons {
-  
   margin: 0 auto;
   text-align: center;
   padding: 30px 0;
 }
 
+/* Setting the cursor, display, border, border-radius, padding, margin, and transition for the icons */
 .icon {
   cursor: pointer;
   display: inline-block;
@@ -91,8 +103,7 @@ header h1 {
   transition: all 0.3s ease;
 }
 
-
-
+/* Setting the text-align, font-weight, text-transform, letter-spacing, and margin for the displayed texts */
 #action-message {
   text-align: center;
   font-weight: 490;
@@ -100,6 +111,9 @@ header h1 {
   letter-spacing: 5px;
   margin: 35px 0;
 }
+
+/* Styling texts for draws, wins, and losses */
+
 
 .winningStyles {
   border: 5px solid #000;
@@ -120,7 +134,7 @@ sup {
   margin: 0;
   padding: 0;
 }
-
+/* Styling reset button */
 .reset-button {
   text-align: center;
   margin-top: 30px;
@@ -133,7 +147,7 @@ button {
   font-weight: bold;
   padding: 10px 20px;
 }
-
+/* Setting responsive screen sizes */
 @media screen and (max-width: 765px){
   body {
     font-size: 15px;

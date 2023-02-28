@@ -45,6 +45,12 @@ In this Rock, Paper, Scissors game, the user is hinted at a little fun plot that
 
 ![loss](assets/images/text-loss.PNG)
 
+- __The Draw Text__
+
+  - This Text appears upon draw. 
+
+![draw](assets/images/draw-text.PNG)
+
 - __The Full Game Win Text__
 
   - This Text appears upon winning three rounds. 
