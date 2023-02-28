@@ -11,21 +11,21 @@ const rock_div = document.getElementById('rock');
 const paper_div = document.getElementById('paper');
 const scissors_div = document.getElementById('scissors');
 
-// Function to get computer's random choice
+// Function to get computer's random choice  
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
 }
 
-// Function to convert choice to capitalized string
+// Function to convert choice to capitalized string (This code was coppied from whatsdev.com by developer Tenzin Phuljung)
 function convertCase(anythingIwant) {
   if (anythingIwant === 'paper') return 'Paper';
   if (anythingIwant === 'scissors') return 'Scissors';
   return 'Rock';
 }
 
-// Function to handle user's win
+// Function to handle user's win   (This code was coppied from whatsdev.com by developer Tenzin Phuljung)
 function win(user, computer) {
   userScore++;
   numberOfWins++;
@@ -41,7 +41,7 @@ function win(user, computer) {
   }
 }
 
-// Function to handle user's loss
+// Function to handle user's loss   (This code was coppied from whatsdev.com by developer Tenzin Phuljung)
 function loses(user, computer) {
   computerScore++;
   numberOfLosses++;
@@ -100,7 +100,7 @@ function game(userChoice) {
   }
 }
 
-// Main function to initialize game and add event listeners to buttons
+// Main function to initialize game and add event listeners to buttons  (This code was coppied from whatsdev.com by developer Tenzin Phuljung)
 function main() {
   let userWins = 0;
   let computerWins = 0;
@@ -112,10 +112,19 @@ function main() {
 
   // Function to end rounds
   function endGame(message) {
-    result_div.innerHTML = `<p>${message}</p>`;
+    result_div.innerHTML = `<p style="color: #00f3ff">${message}</p>`;
     rock_div.removeEventListener('click', () => game('rock'));
     paper_div.removeEventListener('click', () => game('paper'));
     scissors_div.removeEventListener('click', () => game('scissors'));
+      rock_div.style.pointerEvents = "none"
+      rock_div.style.opacity = "0.5";
+
+      paper_div.style.pointerEvents = "none"
+      paper_div.style.opacity = "0.5";
+
+     scissors_div.style.pointerEvents = "none"
+     scissors_div.style.opacity = "0.5";
+
   }
 
   // Function to update the scores
@@ -157,6 +166,33 @@ function main() {
         draw(userChoice, computerChoice);
         break;
     }
+  }
+}
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
 

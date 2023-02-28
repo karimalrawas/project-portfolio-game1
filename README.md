@@ -108,7 +108,9 @@ All bugs and errors found through the validators or through testing the game hav
 
 ## Credits 
 
- Some lines of code for layout, functions, and styling the round buttons were used from code created by Tenzin Phuljung, a software developer and owner of [Whatsdev](https://www.whatsdev.com/), a website that offers free java script courses.
+ - Some lines of code for layout, functions, and styling the round buttons were used from code created by Tenzin Phuljung, a software developer and owner of [Whatsdev](https://www.whatsdev.com/), a website that offers free java script courses.
+
+ - The instructions button code was coppied from w3schools.com under article "How To Create a Modal Box"
 
 ### Content 
 
