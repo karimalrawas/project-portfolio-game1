@@ -1,6 +1,6 @@
 # RPS of destiny
 
-![responsice mockup](assets/images/full.PNG)
+![full](assets/images/full.PNG)
 
 ## Features 
 
